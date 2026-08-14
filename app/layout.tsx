@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Correa y Asociados | Firma de Abogados",
-  description: "Asesoría y representación jurídica con rigor, atención personalizada y compromiso. Solicite una asesoría con Correa y Asociados.",
+  title: "Correa & Asociados | Asesoría Jurídica y Representación Legal",
+  description: "Asesoría jurídica y representación legal en Bucaramanga. Atención personalizada con rigor, compromiso y confianza.",
   openGraph: {
-    title: "Correa y Asociados | Firma de Abogados",
+    title: "Correa & Asociados | Firma de Abogados",
     description: "Defendemos sus derechos. Protegemos sus intereses.",
     type: "website",
     locale: "es_CO",
+    images: [{ url: "/correa-brand.jpeg", width: 1415, height: 872, alt: "Correa & Asociados — Asesoría jurídica y representación legal" }],
   },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
