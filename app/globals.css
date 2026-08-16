@@ -16,3 +16,17 @@ footer{background:#070706;color:#98968f;padding:70px 6vw 20px;border-top:1px sol
 .field-grid .honey{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}.success,.form-error{margin:15px 0 0;padding:12px;font-size:11px}.form-error{background:#f5e2df;color:#852f26}
 @media(max-width:980px){.site-header{height:72px}.menu-button{display:block}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:#0a0a09;padding:28px 6vw;flex-direction:column;align-items:stretch;gap:0;border-top:1px solid #222}.nav.open{display:flex}.nav>a{padding:14px 0;border-bottom:1px solid #20201d}.nav-cta{margin-top:12px;justify-content:space-between;padding:15px!important}.hero{padding-left:8vw}.trust-strip{gap:18px;flex-wrap:wrap;right:7vw}.about{grid-template-columns:1fr;gap:80px}.about-image{max-width:650px}.service-grid{grid-template-columns:repeat(2,1fr)}.contact{grid-template-columns:1fr}.footer-main{grid-template-columns:2fr 1fr 1fr}.footer-main>div:last-child{display:none}.statement{align-items:flex-start;flex-wrap:wrap}.statement-mark{display:none}}
 @media(max-width:640px){.section{padding:82px 22px}.site-header{padding:0 20px}.official-mark{width:42px;height:42px}.hero{min-height:790px;padding:125px 22px 170px;background-position:62% center}.hero h1{font-size:47px}.hero-copy{font-size:13px}.hero .eyebrow{font-size:8px;letter-spacing:.2em}.actions{flex-direction:column;align-items:stretch}.actions .button{width:100%}.trust-strip{left:22px;bottom:44px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.trust-strip span{font-size:8px}.scroll-cue{display:none}.about-image{margin-left:10px}.image-frame{height:440px}.image-note{right:-10px;bottom:-38px;padding:18px}.about-copy h2{font-size:48px}.principles{grid-template-columns:1fr}.section-heading{display:block;margin-bottom:42px}.section-heading>p{margin-top:24px}.service-grid{grid-template-columns:1fr}.service-card{min-height:270px}.case{grid-template-columns:35px 1fr}.case>a{display:none}.case h3{font-size:24px}.statement{padding:60px 22px;display:block}.statement h2{font-size:39px}.statement .button{margin-top:28px;width:100%}.contact-form{padding:28px 20px}.field-grid{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.footer-bottom{display:block}.whatsapp{width:48px;padding:0;justify-content:center}.whatsapp b{display:none}}
+
+/* Marca corporativa: lockup horizontal y emblema completo. */
+.brand{gap:18px}
+.brand-name{display:block;white-space:nowrap}
+.brand-name b{display:block;font-size:19px;line-height:1;letter-spacing:.16em}
+.official-mark{width:72px;height:72px;flex:0 0 72px;border-radius:10px;background-size:290% auto;background-position:50% 41%;box-shadow:0 0 0 1px rgba(221,181,59,.5)}
+.site-header.is-scrolled .official-mark{width:56px;height:56px;flex-basis:56px}
+
+@media(max-width:640px){
+  .brand{gap:10px}
+  .brand-name b{font-size:14px;letter-spacing:.08em}
+  .official-mark{width:54px;height:54px;flex-basis:54px}
+  .site-header.is-scrolled .official-mark{width:48px;height:48px;flex-basis:48px}
+}
