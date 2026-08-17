@@ -37,6 +37,7 @@ yarn-error.log*
 
 /dist/
 /.wrangler/
+/.netlify/
 /outputs/
 /work/
 /.npm-cache/

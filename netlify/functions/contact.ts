@@ -1,30 +1,37 @@
 import {
   createContactEmail,
   validateContactSubmission,
-} from "@/lib/contact-email";
-import { sendEmailWithResend } from "@/lib/resend";
+} from "../../lib/contact-email";
+import { sendEmailWithResend } from "../../lib/resend";
 
 const MAX_REQUEST_SIZE = 12_000;
 const DEFAULT_CONTACT_EMAIL = "johanandres888@hotmail.com";
 const DEFAULT_FROM_EMAIL = "Correa & Asociados <onboarding@resend.dev>";
 
-export async function POST(request: Request) {
+export default async function contact(request: Request) {
+  if (request.method !== "POST") {
+    return jsonResponse({ error: "Método no permitido." }, 405);
+  }
+
   try {
     if (requestIsTooLarge(request)) {
-      return errorResponse("La solicitud es demasiado extensa.", 413);
+      return jsonResponse({ error: "La solicitud es demasiado extensa." }, 413);
     }
 
     const validation = validateContactSubmission(await request.json());
     if (!validation.success) {
-      return errorResponse(validation.error, 400);
+      return jsonResponse({ error: validation.error }, 400);
     }
 
     // Respondemos como si fuera válido para no enseñar el honeypot a los bots.
-    if (validation.isSpam) return Response.json({ ok: true });
+    if (validation.isSpam) return jsonResponse({ ok: true });
 
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
-      return errorResponse("El servicio de correo aún no está configurado.", 503);
+      return jsonResponse(
+        { error: "El servicio de correo aún no está configurado." },
+        503,
+      );
     }
 
     const email = createContactEmail(validation.data);
@@ -41,13 +48,13 @@ export async function POST(request: Request) {
         delivery.status === 403
           ? "Resend no autoriza el destinatario configurado. Verifique el dominio o use el correo asociado a su cuenta."
           : "No fue posible enviar la solicitud. Intente nuevamente o contáctenos por WhatsApp.";
-      return errorResponse(message, 502);
+      return jsonResponse({ error: message }, 502);
     }
 
-    return Response.json({ ok: true });
+    return jsonResponse({ ok: true });
   } catch {
-    return errorResponse(
-      "Ocurrió un problema al enviar la solicitud. Intente nuevamente.",
+    return jsonResponse(
+      { error: "Ocurrió un problema al enviar la solicitud. Intente nuevamente." },
       500,
     );
   }
@@ -58,6 +65,6 @@ function requestIsTooLarge(request: Request) {
   return contentLength > MAX_REQUEST_SIZE;
 }
 
-function errorResponse(error: string, status: number) {
-  return Response.json({ error }, { status });
+function jsonResponse(body: Record<string, unknown>, status = 200) {
+  return Response.json(body, { status });
 }
