@@ -3,19 +3,15 @@ import { PRINCIPLES } from "@/config/site";
 export function AboutSection() {
   return (
     <section className="about section" id="nosotros">
-      <div className="about-image reveal">
+      <div className="about-image about-image-left reveal">
         <div
-          className="image-frame"
+          className="image-frame image-frame-left"
           role="img"
-          aria-label="Interior elegante de una oficina jurídica"
+          aria-label="Profesionales revisando documentos jurídicos"
         />
-        <div className="image-note">
-          <span className="image-note-logo" aria-hidden="true" />
-          <p>
-            Su caso merece atención
-            <br />
-            <b>rigurosa y personal</b>
-          </p>
+        <div className="photo-watermark" aria-hidden="true">
+          <span className="watermark-mark" />
+          <b>CORREA &amp; ASOCIADOS</b>
         </div>
       </div>
 
@@ -50,6 +46,18 @@ export function AboutSection() {
         <a className="text-link" href="#contacto">
           CONVERSE CON NUESTRO EQUIPO <span>→</span>
         </a>
+      </div>
+
+      <div className="about-image about-image-right reveal">
+        <div
+          className="image-frame image-frame-right"
+          role="img"
+          aria-label="Reunión profesional en una oficina jurídica"
+        />
+        <div className="photo-watermark" aria-hidden="true">
+          <span className="watermark-mark" />
+          <b>CORREA &amp; ASOCIADOS</b>
+        </div>
       </div>
     </section>
   );

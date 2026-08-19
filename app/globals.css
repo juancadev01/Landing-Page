@@ -82,17 +82,18 @@ p {
 }
 .official-mark {
   display: block;
-  width: 48px;
-  height: 48px;
-  background-image: url("/correa-brand.jpeg");
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  background-image: url("/correa-emblem.png");
   background-repeat: no-repeat;
-  background-size: 325% auto;
-  background-position: 50% 41%;
+  background-size: contain;
+  background-position: center;
 }
 .brand b {
   display: block;
   font-family: "Cormorant Garamond", serif;
-  font-size: 19px;
+  font-size: 24px;
   line-height: 0.9;
 }
 .brand small {
@@ -295,8 +296,8 @@ p {
 }
 .about {
   display: grid;
-  grid-template-columns: 0.9fr 1fr;
-  gap: 9vw;
+  grid-template-columns: minmax(230px, 0.82fr) minmax(340px, 1.15fr) minmax(230px, 0.82fr);
+  gap: clamp(30px, 4vw, 70px);
   align-items: center;
   background: var(--paper);
 }
@@ -304,11 +305,21 @@ p {
   position: relative;
 }
 .image-frame {
-  height: 650px;
+  height: 570px;
+  background-position: center;
+  background-size: cover;
+}
+.image-frame-left {
   background:
     linear-gradient(rgba(12, 11, 9, 0.08), rgba(12, 11, 9, 0.3)),
     url("https://www.urbanacassociates.com/assets/images/image02.jpg?v=11d46d6d")
       center/cover;
+}
+.image-frame-right {
+  background:
+    linear-gradient(rgba(12, 11, 9, 0.06), rgba(12, 11, 9, 0.32)),
+    url("https://ex1.siteforma.com.br/assets/hero-law-office-CwSGiJaY.jpg")
+      68% center/cover;
 }
 .about-image:before {
   content: "";
@@ -318,33 +329,26 @@ p {
   border: 1px solid var(--gold);
   pointer-events: none;
 }
-.image-note {
+.photo-watermark {
   position: absolute;
-  right: -38px;
-  bottom: -32px;
+  left: 18px;
+  bottom: 18px;
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 18px;
-  background: var(--ink);
-  color: white;
-  padding: 23px 30px;
-}
-.image-note-logo {
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
-  background: url("/correa-brand.jpeg") 50% 41%/325% auto no-repeat;
-}
-.image-note p {
-  margin: 0;
-  font:
-    17px/1.3 "Cormorant Garamond",
-    serif;
-}
-.image-note b {
-  font-weight: 500;
+  gap: 10px;
   color: var(--gold-light);
+  opacity: 0.84;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
+}
+.watermark-mark {
+  width: 46px;
+  height: 46px;
+  background: url("/correa-emblem.png") center/contain no-repeat;
+}
+.photo-watermark b {
+  font: 600 14px/1 "Cormorant Garamond", serif;
+  letter-spacing: 0.1em;
 }
 .eyebrow.dark {
   color: #77736a;
@@ -419,7 +423,7 @@ p {
 }
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
 }
@@ -455,10 +459,11 @@ p {
   font:
     500 24px "Cormorant Garamond",
     serif;
+  color: var(--gold-light);
 }
 .service-card p {
-  color: #8f8d87;
-  font-size: 12px;
+  color: #b7b4ac;
+  font-size: 14px;
   line-height: 1.75;
   min-height: 70px;
 }
@@ -744,6 +749,9 @@ footer {
 .footer-brand .brand {
   color: white;
 }
+.footer-brand .brand-name b {
+  font-size: 25px;
+}
 .footer-brand p {
   margin-top: 25px;
   font: 18px/1.5 "Cormorant Garamond";
@@ -871,11 +879,15 @@ footer {
     right: 7vw;
   }
   .about {
-    grid-template-columns: 1fr;
-    gap: 80px;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px 35px;
   }
   .about-image {
     max-width: 650px;
+  }
+  .about-copy {
+    grid-column: 1 / -1;
+    grid-row: 1;
   }
   .service-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -944,15 +956,27 @@ footer {
     display: none;
   }
   .about-image {
-    margin-left: 10px;
+    margin-left: 8px;
   }
   .image-frame {
     height: 440px;
   }
-  .image-note {
-    right: -10px;
-    bottom: -38px;
-    padding: 18px;
+  .about {
+    grid-template-columns: 1fr;
+  }
+  .about-copy,
+  .about-image {
+    grid-column: 1;
+  }
+  .about-image-left {
+    grid-row: 2;
+  }
+  .about-image-right {
+    grid-row: 3;
+  }
+  .photo-watermark {
+    left: 14px;
+    bottom: 14px;
   }
   .about-copy h2 {
     font-size: 48px;
@@ -1018,7 +1042,7 @@ footer {
   }
 }
 
-/* Marca corporativa: lockup horizontal y emblema completo. */
+/* Marca corporativa: emblema transparente y lockup horizontal. */
 .brand {
   gap: 18px;
 }
@@ -1033,11 +1057,9 @@ footer {
   letter-spacing: 0.16em;
 }
 .official-mark {
-  width: 72px;
-  height: 72px;
-  flex: 0 0 72px;
-  background-size: 290% auto;
-  background-position: 50% 41%;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
 }
 .site-header.is-scrolled .official-mark {
   width: 56px;
@@ -1050,7 +1072,7 @@ footer {
     gap: 10px;
   }
   .brand-name b {
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: 0.08em;
   }
   .official-mark {

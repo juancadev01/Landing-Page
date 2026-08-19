@@ -49,31 +49,31 @@ export const SERVICES: Service[] = [
       "Orientación y representación en obligaciones, contratos y controversias entre particulares.",
   },
   {
-    icon: "◇",
+    icon: "⚒",
     title: "Derecho Laboral",
     description:
       "Acompañamiento preventivo y representación en asuntos derivados de relaciones laborales.",
   },
   {
-    icon: "▦",
+    icon: "▥",
     title: "Derecho Comercial",
     description:
       "Asesoría legal para empresas, comerciantes y el desarrollo seguro de sus negocios.",
   },
   {
-    icon: "⌂",
+    icon: "♡",
     title: "Derecho de Familia",
     description:
       "Atención sensible y estratégica en asuntos familiares y patrimoniales.",
   },
   {
-    icon: "▤",
+    icon: "♜",
     title: "Derecho Administrativo",
     description:
       "Orientación frente a actuaciones, trámites y controversias con entidades públicas.",
   },
   {
-    icon: "✦",
+    icon: "◈",
     title: "Asesoría Jurídica",
     description:
       "Análisis riguroso para comprender sus alternativas y tomar decisiones informadas.",
@@ -89,6 +89,12 @@ export const SERVICES: Service[] = [
     title: "Conciliaciones",
     description:
       "Búsqueda de acuerdos viables para resolver conflictos de manera eficiente.",
+  },
+  {
+    icon: "⌕",
+    title: "Investigación Criminal",
+    description:
+      "Apoyo investigativo, análisis de información y recolección técnica de elementos útiles para la estrategia jurídica y la defensa de cada caso.",
   },
 ];
 
