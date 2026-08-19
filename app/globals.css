@@ -84,12 +84,10 @@ p {
   display: block;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
   background-image: url("/correa-brand.jpeg");
   background-repeat: no-repeat;
   background-size: 325% auto;
   background-position: 50% 41%;
-  box-shadow: 0 0 0 1px rgba(221, 181, 59, 0.45);
 }
 .brand b {
   display: block;
@@ -336,9 +334,7 @@ p {
   width: 52px;
   height: 52px;
   flex: 0 0 52px;
-  border-radius: 50%;
   background: url("/correa-brand.jpeg") 50% 41%/325% auto no-repeat;
-  box-shadow: 0 0 0 1px rgba(221, 181, 59, 0.45);
 }
 .image-note p {
   margin: 0;
@@ -1040,10 +1036,8 @@ footer {
   width: 72px;
   height: 72px;
   flex: 0 0 72px;
-  border-radius: 10px;
   background-size: 290% auto;
   background-position: 50% 41%;
-  box-shadow: 0 0 0 1px rgba(221, 181, 59, 0.5);
 }
 .site-header.is-scrolled .official-mark {
   width: 56px;

@@ -5,7 +5,7 @@ import {
 import { sendEmailWithResend } from "../../lib/resend";
 
 const MAX_REQUEST_SIZE = 12_000;
-const DEFAULT_CONTACT_EMAIL = "johanandres888@hotmail.com";
+const DEFAULT_CONTACT_EMAIL = "jrugelesacelas2799@gmail.com";
 const DEFAULT_FROM_EMAIL = "Correa & Asociados <onboarding@resend.dev>";
 
 export default async function contact(request: Request) {
