@@ -22,7 +22,7 @@ La aplicación estará disponible normalmente en `http://localhost:5173`.
 ```env
 RESEND_API_KEY=re_xxxxxxxxx
 CONTACT_EMAIL=correo-destinatario@ejemplo.com
-RESEND_FROM_EMAIL="Correa & Asociados <onboarding@resend.dev>"
+RESEND_FROM_EMAIL="Nombre de la firma <correo-remitente@ejemplo.com>"
 ```
 
 `.env.local` está excluido de Git para evitar publicar credenciales.

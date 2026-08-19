@@ -5,8 +5,6 @@ import {
 import { sendEmailWithResend } from "../../lib/resend";
 
 const MAX_REQUEST_SIZE = 12_000;
-const DEFAULT_CONTACT_EMAIL = "jrugelesacelas2799@gmail.com";
-const DEFAULT_FROM_EMAIL = "Correa & Asociados <onboarding@resend.dev>";
 
 export default async function contact(request: Request) {
   if (request.method !== "POST") {
@@ -27,7 +25,15 @@ export default async function contact(request: Request) {
     if (validation.isSpam) return jsonResponse({ ok: true });
 
     const apiKey = process.env.RESEND_API_KEY;
-    if (!apiKey) {
+    const fromEmail = process.env.RESEND_FROM_EMAIL;
+    const contactEmail = process.env.CONTACT_EMAIL;
+
+    if (!apiKey || !fromEmail || !contactEmail) {
+      console.error("Configuración de correo incompleta.", {
+        hasApiKey: Boolean(apiKey),
+        hasFromEmail: Boolean(fromEmail),
+        hasContactEmail: Boolean(contactEmail),
+      });
       return jsonResponse(
         { error: "El servicio de correo aún no está configurado." },
         503,
@@ -37,8 +43,8 @@ export default async function contact(request: Request) {
     const email = createContactEmail(validation.data);
     const delivery = await sendEmailWithResend({
       apiKey,
-      from: process.env.RESEND_FROM_EMAIL ?? DEFAULT_FROM_EMAIL,
-      to: process.env.CONTACT_EMAIL ?? DEFAULT_CONTACT_EMAIL,
+      from: fromEmail,
+      to: contactEmail,
       replyTo: validation.data.email,
       ...email,
     });
