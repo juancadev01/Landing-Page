@@ -1,10 +1,8 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { CONTACT, SERVICES } from "@/config/site";
-import type { ContactApiResponse, ContactSubmission } from "@/types/contact";
-
-type FormStatus = "idle" | "loading" | "success" | "error";
+import type { ContactSubmission } from "@/types/contact";
 
 function readSubmission(form: HTMLFormElement): ContactSubmission {
   const data = new FormData(form);
@@ -21,56 +19,35 @@ function readSubmission(form: HTMLFormElement): ContactSubmission {
 }
 
 export function ContactSection() {
-  const [status, setStatus] = useState<FormStatus>("idle");
-  const [formMessage, setFormMessage] = useState("");
-
-  async function submitForm(event: FormEvent<HTMLFormElement>) {
+  function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     if (!form.checkValidity()) return form.reportValidity();
 
-    setStatus("loading");
-    setFormMessage("");
+    const submission = readSubmission(form);
+    if (submission.website) return;
 
-    try {
-      const response = await fetch("/.netlify/functions/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(readSubmission(form)),
-      });
-      const result = (await response
-        .json()
-        .catch(() => ({}))) as ContactApiResponse;
+    const lines = [
+      "Hola, quiero solicitar una asesoría jurídica.",
+      "",
+      `Nombre: ${submission.name}`,
+      `Teléfono: ${submission.phone}`,
+      submission.email ? `Correo: ${submission.email}` : "",
+      submission.city ? `Ciudad: ${submission.city}` : "",
+      `Servicio de interés: ${submission.service}`,
+      "",
+      "Descripción del caso:",
+      submission.message,
+    ].filter(Boolean);
 
-      if (!response.ok) {
-        throw new Error(
-          result.error ?? "No fue posible enviar la solicitud. Intente nuevamente.",
-        );
-      }
-
-      form.reset();
-      setStatus("success");
-      setFormMessage(
-        "Solicitud enviada correctamente. Nos pondremos en contacto con usted.",
-      );
-    } catch (error) {
-      setStatus("error");
-      setFormMessage(
-        error instanceof Error && error.message
-          ? error.message
-          : "No fue posible enviar la solicitud. Intente nuevamente.",
-      );
-    }
+    const url = `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank", "noopener,noreferrer");
   }
 
   return (
     <section className="contact section" id="contacto">
       <ContactDetails />
-      <ContactForm
-        status={status}
-        message={formMessage}
-        onSubmit={submitForm}
-      />
+      <ContactForm onSubmit={submitForm} />
     </section>
   );
 }
@@ -87,8 +64,8 @@ function ContactDetails() {
         <em>asesoría</em>
       </h2>
       <p>
-        Cuéntenos brevemente su situación. Nuestro equipo revisará la información
-        y podrá ponerse en contacto con usted.
+        Cuéntenos brevemente su situación. Al continuar será dirigido a WhatsApp
+        para conversar directamente con nuestro equipo.
       </p>
 
       <div className="contact-data">
@@ -122,12 +99,10 @@ function ContactDetails() {
 }
 
 type ContactFormProps = {
-  status: FormStatus;
-  message: string;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 };
 
-function ContactForm({ status, message, onSubmit }: ContactFormProps) {
+function ContactForm({ onSubmit }: ContactFormProps) {
   return (
     <form className="contact-form reveal" onSubmit={onSubmit}>
       <div className="form-heading">
@@ -148,8 +123,8 @@ function ContactForm({ status, message, onSubmit }: ContactFormProps) {
           <input name="name" required minLength={3} autoComplete="name" placeholder="Escriba su nombre" />
         </label>
         <label>
-          Correo electrónico *
-          <input type="email" name="email" required autoComplete="email" placeholder="nombre@correo.com" />
+          Correo electrónico (opcional)
+          <input type="email" name="email" autoComplete="email" placeholder="nombre@correo.com" />
         </label>
         <label>
           Teléfono / WhatsApp *
@@ -179,14 +154,14 @@ function ContactForm({ status, message, onSubmit }: ContactFormProps) {
         </span>
       </label>
 
-      <button className="button gold submit" disabled={status === "loading"}>
-        {status === "loading" ? "Enviando solicitud…" : "Enviar solicitud"}
+      <button className="button gold submit">
+        Solicitar asesoría por WhatsApp
         <span>→</span>
       </button>
 
-      {status === "success" && <p className="success" role="status">✓ {message}</p>}
-      {status === "error" && <p className="form-error" role="alert">{message}</p>}
-      <p className="demo-note">La información se envía de forma segura a Correa &amp; Asociados.</p>
+      <p className="demo-note">
+        Al continuar, se abrirá WhatsApp con la información de su solicitud.
+      </p>
     </form>
   );
 }
