@@ -25,6 +25,10 @@ body {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
 }
+body,
+body * {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -200,7 +204,7 @@ p {
   align-items: center;
   gap: 16px;
   color: var(--gold-light);
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 0.32em;
   font-weight: 600;
 }
@@ -433,9 +437,9 @@ p {
 }
 .section-heading > p {
   max-width: 430px;
-  color: #9b9992;
-  line-height: 1.8;
-  font-size: 16px;
+  color: #c0bdb5;
+  line-height: 1.7;
+  font-size: 18px;
 }
 .service-grid {
   display: grid;
@@ -489,7 +493,7 @@ p {
   margin-top: 26px;
   color: #c4bda9;
   text-transform: uppercase;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.15em;
 }
 .service-card a span {
@@ -499,8 +503,8 @@ p {
 .placeholder-note {
   text-align: center;
   margin: 36px 0 0;
-  color: #65635e;
-  font-size: 9px;
+  color: #969189;
+  font-size: 12px;
   letter-spacing: 0.08em;
 }
 .experience {
@@ -510,7 +514,9 @@ p {
   color: #9f7b3d;
 }
 .section-heading.light > p {
-  color: #6f6b62;
+  color: #4d4a43;
+  font-size: 18px;
+  font-weight: 500;
 }
 .case-list {
   border-top: 1px solid #d4cfc2;
@@ -536,18 +542,19 @@ p {
   color: #a98448;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 8px;
+  font-size: 11px;
+  font-weight: 600;
 }
 .case h3 {
-  font: 500 28px "Cormorant Garamond";
+  font: 600 33px "Cormorant Garamond";
   margin: 7px 0;
 }
 .case p {
   margin: 0;
   max-width: 800px;
-  color: #77736a;
-  font-size: 12px;
-  line-height: 1.6;
+  color: #4f4c45;
+  font-size: 16px;
+  line-height: 1.65;
 }
 .case > a {
   width: 43px;
@@ -591,7 +598,7 @@ p {
 }
 .statement > div > p:last-child {
   margin: 0;
-  font-size: 12px;
+  font-size: 16px;
 }
 .dark-button {
   background: #12110e;
@@ -613,9 +620,9 @@ p {
   margin: 28px 0;
 }
 .contact-info > p:not(.eyebrow) {
-  color: #93918a;
-  font-size: 13px;
-  line-height: 1.8;
+  color: #c0bdb5;
+  font-size: 18px;
+  line-height: 1.7;
   max-width: 430px;
 }
 .contact-data {
@@ -628,8 +635,8 @@ p {
   gap: 20px;
   padding: 18px 0;
   border-bottom: 1px solid var(--line);
-  font-size: 12px;
-  color: #d8d4ca;
+  font-size: 16px;
+  color: #f0ece2;
   overflow-wrap: anywhere;
 }
 .contact-data i {
@@ -639,15 +646,17 @@ p {
 }
 .contact-data small {
   display: block;
-  color: #6d6b66;
-  font-size: 7px;
+  color: #aaa69d;
+  font-size: 10px;
+  font-weight: 600;
   letter-spacing: 0.18em;
   margin-bottom: 5px;
 }
 .editable {
   display: block;
   margin-top: 20px;
-  color: #625f58;
+  color: #aaa69d;
+  font-size: 15px;
 }
 .contact-form {
   background: #f6f3ec;
@@ -670,11 +679,11 @@ p {
 }
 .form-heading b {
   display: block;
-  font: 22px "Cormorant Garamond";
+  font: 600 28px "Cormorant Garamond";
 }
 .form-heading small {
-  font-size: 9px;
-  color: #8d897f;
+  font-size: 12px;
+  color: #68645c;
 }
 .field-grid {
   display: grid;
@@ -682,7 +691,7 @@ p {
   gap: 23px 18px;
 }
 .field-grid label {
-  font-size: 9px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.11em;
   font-weight: 600;
@@ -699,7 +708,7 @@ p {
   background: transparent;
   border-radius: 0;
   outline: none;
-  font-size: 12px;
+  font-size: 16px;
   text-transform: none;
   letter-spacing: 0;
   color: #171612;
@@ -721,8 +730,8 @@ p {
   align-items: flex-start;
   gap: 10px;
   margin: 24px 0;
-  font-size: 9px;
-  color: #767269;
+  font-size: 12px;
+  color: #565249;
 }
 .checkbox input {
   accent-color: #ae8b4d;
@@ -748,8 +757,8 @@ p {
 .demo-note {
   margin: 12px 0 0;
   text-align: center;
-  color: #8c877d;
-  font-size: 8px;
+  color: #68645c;
+  font-size: 11px;
 }
 footer {
   background: #070706;
@@ -785,7 +794,7 @@ footer {
 .footer-main > div:not(:first-child) p {
   display: block;
   margin: 0 0 12px;
-  font-size: 10px;
+  font-size: 13px;
 }
 .footer-main a:hover {
   color: var(--gold);
@@ -796,7 +805,7 @@ footer {
   margin-top: 55px;
   padding-top: 20px;
   border-top: 1px solid #1c1b18;
-  font-size: 8px;
+  font-size: 11px;
   letter-spacing: 0.1em;
 }
 .whatsapp {
