@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -22,7 +22,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Manrope, Arial, sans-serif;
+  font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
 }
 a {
@@ -33,7 +33,7 @@ button,
 input,
 select,
 textarea {
-  font: inherit;
+  font-family: "Cormorant Garamond", Georgia, serif;
 }
 button,
 a {
@@ -107,7 +107,7 @@ p {
   display: flex;
   align-items: center;
   gap: 32px;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.04em;
 }
 .nav > a:not(.nav-cta) {
@@ -223,7 +223,7 @@ p {
   max-width: 600px;
   color: #d2d0ca;
   line-height: 1.8;
-  font-size: 15px;
+  font-size: 18px;
 }
 .actions {
   display: flex;
@@ -239,7 +239,7 @@ p {
   gap: 38px;
   text-transform: uppercase;
   letter-spacing: 0.13em;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   border: 1px solid transparent;
   transition: 0.25s;
@@ -342,8 +342,9 @@ p {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.75);
 }
 .watermark-mark {
-  width: 46px;
+  width: 62px;
   height: 46px;
+  flex: 0 0 62px;
   background: url("/correa-emblem.png") center/contain no-repeat;
 }
 .photo-watermark b {
@@ -419,7 +420,7 @@ p {
   max-width: 430px;
   color: #9b9992;
   line-height: 1.8;
-  font-size: 13px;
+  font-size: 16px;
 }
 .service-grid {
   display: grid;
@@ -463,7 +464,7 @@ p {
 }
 .service-card p {
   color: #b7b4ac;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.75;
   min-height: 70px;
 }
@@ -1057,14 +1058,14 @@ footer {
   letter-spacing: 0.16em;
 }
 .official-mark {
-  width: 64px;
-  height: 64px;
-  flex: 0 0 64px;
+  width: 76px;
+  height: 58px;
+  flex: 0 0 76px;
 }
 .site-header.is-scrolled .official-mark {
-  width: 56px;
-  height: 56px;
-  flex-basis: 56px;
+  width: 66px;
+  height: 50px;
+  flex-basis: 66px;
 }
 
 @media (max-width: 640px) {
@@ -1076,13 +1077,13 @@ footer {
     letter-spacing: 0.08em;
   }
   .official-mark {
-    width: 54px;
-    height: 54px;
-    flex-basis: 54px;
+    width: 60px;
+    height: 46px;
+    flex-basis: 60px;
   }
   .site-header.is-scrolled .official-mark {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+    width: 56px;
+    height: 43px;
+    flex-basis: 56px;
   }
 }
