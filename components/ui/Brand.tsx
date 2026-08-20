@@ -10,10 +10,11 @@ export function Brand({ onClick }: BrandProps) {
       aria-label="Correa & Asociados, inicio"
       onClick={onClick}
     >
-      <span className="brand-mark official-mark" aria-hidden="true" />
-      <span className="brand-name">
-        <b>CORREA &amp; ASOCIADOS</b>
-      </span>
+      <img
+        className="brand-logo-full"
+        src="/correa-logo-completo.png"
+        alt="Correa & Asociados — Asesoría jurídica y representación legal"
+      />
     </a>
   );
 }
