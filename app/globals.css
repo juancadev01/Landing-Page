@@ -765,7 +765,7 @@ footer {
   height: 162px;
 }
 .footer-brand .brand-name b {
-  font-size: 25px;
+  font-size: 34px;
 }
 .footer-brand p {
   margin-top: 25px;
@@ -933,15 +933,15 @@ footer {
     height: 96px;
   }
   .brand-logo-full {
-    width: 104px;
-    height: 86px;
+    width: 84px;
+    height: 72px;
   }
   .site-header.is-scrolled {
     height: 88px;
   }
   .site-header.is-scrolled .brand-logo-full {
-    width: 94px;
-    height: 78px;
+    width: 78px;
+    height: 66px;
   }
   .nav {
     top: 96px;
@@ -1085,9 +1085,9 @@ footer {
 }
 .brand-name b {
   display: block;
-  font-size: 19px;
+  font-size: 32px;
   line-height: 1;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.11em;
 }
 .official-mark {
   width: 76px;
@@ -1106,7 +1106,7 @@ footer {
   }
   .brand-name b {
     font-size: 17px;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.03em;
   }
   .official-mark {
     width: 60px;

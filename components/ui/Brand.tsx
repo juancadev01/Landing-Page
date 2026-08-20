@@ -15,6 +15,9 @@ export function Brand({ onClick }: BrandProps) {
         src="/correa-logo-completo.png"
         alt="Correa & Asociados — Asesoría jurídica y representación legal"
       />
+      <span className="brand-name" aria-hidden="true">
+        <b>CORREA &amp; ASOCIADOS</b>
+      </span>
     </a>
   );
 }
