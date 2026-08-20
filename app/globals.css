@@ -362,7 +362,9 @@ p {
   letter-spacing: 0.1em;
 }
 .eyebrow.dark {
-  color: #77736a;
+  color: #5f5b52;
+  font-size: 12px;
+  font-weight: 700;
 }
 .about-copy h2 {
   font-size: clamp(46px, 5vw, 70px);
@@ -373,15 +375,15 @@ p {
 }
 .about-copy .lead {
   font:
-    500 24px/1.35 "Cormorant Garamond",
+    600 27px/1.4 "Cormorant Garamond",
     serif;
-  color: #3a3832;
+  color: #292720;
 }
 .about-copy > p:not(.eyebrow) {
   max-width: 630px;
-  color: #716f69;
-  line-height: 1.8;
-  font-size: 14px;
+  color: #4d4a43;
+  line-height: 1.75;
+  font-size: 17px;
 }
 .principles {
   display: grid;
@@ -395,14 +397,17 @@ p {
   border-top: 1px solid #ddd8ce;
 }
 .principles b {
-  font: 12px "Cormorant Garamond";
-  color: var(--gold);
+  font: 600 14px "Cormorant Garamond";
+  color: #9a7437;
 }
 .principles span {
-  font-size: 12px;
+  color: #38362f;
+  font-size: 16px;
+  font-weight: 600;
 }
 .text-link {
-  font-size: 9px;
+  color: #292720;
+  font-size: 12px;
   letter-spacing: 0.17em;
   font-weight: 600;
   border-bottom: 1px solid var(--gold);

@@ -39,6 +39,8 @@ export const PRINCIPLES = [
   "Confianza y reserva",
   "Ética profesional",
   "Atención personal",
+  "Transparencia",
+  "Responsabilidad profesional",
 ] as const;
 
 export const SERVICES: Service[] = [
